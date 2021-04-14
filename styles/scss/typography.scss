@@ -40,3 +40,70 @@ $fontHeading: "Font";
 	letter-spacing: $letterSpacing;
 	line-height: $lineHeight;
 }
+
+html {
+  font-size: 16px;
+}
+
+body {
+  @include base-body(
+    $fontSize: 1rem,
+    $fontWeight: 400,
+    $letterSpacing: 0rem,
+    $lineHeight: 1.1rem
+  );
+}
+
+h1 {
+  @include base-heading(
+    $fontSize: 2rem,
+    $fontWeight: 600,
+    $letterSpacing: 0.1rem,
+    $lineHeight: 1.1rem
+  );
+}
+
+h2 {
+  @include base-heading(
+    $fontSize: 1.8rem,
+    $fontWeight: 600,
+    $letterSpacing: 0.1rem,
+    $lineHeight: 1.1rem
+  );
+}
+
+h3 {
+  @include base-heading(
+    $fontSize: 1.6rem,
+    $fontWeight: 600,
+    $letterSpacing: 0.1rem,
+    $lineHeight: 1.1rem
+  );
+}
+
+h4 {
+  @include base-heading(
+    $fontSize: 1.4rem,
+    $fontWeight: 600,
+    $letterSpacing: 0.1rem,
+    $lineHeight: 1.1rem
+  );
+}
+
+h5 {
+  @include base-heading(
+    $fontSize: 1.2rem,
+    $fontWeight: 600,
+    $letterSpacing: 0.1rem,
+    $lineHeight: 1.1rem
+  );
+}
+
+h6 {
+  @include base-heading(
+    $fontSize: 1rem,
+    $fontWeight: 600,
+    $letterSpacing: 0.1rem,
+    $lineHeight: 1.1rem
+  );
+}
