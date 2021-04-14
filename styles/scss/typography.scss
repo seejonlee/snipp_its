@@ -1,0 +1,42 @@
+@at-root {
+	@font-face {
+		font-family: "Font";
+		font-style: normal;
+		font-weight: normal;
+		src:
+			url("../path to font files.ttf") format("truetype"),
+			url("../path to font files.woff2") format("woff2"),
+			url("../path to font files.woff") format("woff");
+		
+	}
+}
+
+// Typography
+$fontBody: "Font";
+$fontHeading: "Font";
+
+@mixin base-typography {
+	font-style: normal;
+	-moz-osx-font-smoothing: grayscale; /* 1 */
+	-webkit-font-smoothing: antialiased; /* 1 */
+}
+
+@mixin base-heading($fontSize, $fontWeight, $letterSpacing, $lineHeight) {
+	@include base-typography();
+
+	font-family: $fontHeading;
+	font-size: $fontSize;
+	font-weight: $fontWeight;
+	letter-spacing: $letterSpacing;
+	line-height: $lineHeight;
+}
+
+@mixin base-body($fontSize, $fontWeight, $letterSpacing, $lineHeight) {
+	@include base-typography();
+
+	font-family: $fontBody;
+	font-size: $fontSize;
+	font-weight: $fontWeight;
+	letter-spacing: $letterSpacing;
+	line-height: $lineHeight;
+}
