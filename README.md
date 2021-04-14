@@ -1,2 +1,4 @@
 # snipp_its
-A collection of snippets that I've developed and used over time.
+A collection of snippets to live on into ♾️ :rocket:
+
+_Or the next time I update them, whichever comes sooner._
