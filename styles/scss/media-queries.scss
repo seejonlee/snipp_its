@@ -1,0 +1,43 @@
+$breakpoints: (
+	"s": 360px,
+	"m": 768px,
+	"ml": 1024px,
+	"l": 1440px,
+	"w": 1920px,
+) !default;
+
+$small-up: "min-width: #{map-get($breakpoints, s)}";
+$medium-up: "min-width: #{map-get($breakpoints, m)}";
+$medium-large-up: "min-width: #{map-get($breakpoints, ml)}";
+$large-up: "min-width: #{map-get($breakpoints, l)}";
+$wide-up: "min-width: #{map-get($breakpoints, w)}";
+
+@mixin at-s-up {
+	@media only screen and ($small-up) {
+		@content;
+	}
+}
+
+@mixin at-m-up {
+	@media only screen and ($medium-up) {
+		@content;
+	}
+}
+
+@mixin at-ml-up {
+	@media only screen and ($medium-large-up) {
+		@content;
+	}
+}
+
+@mixin at-l-up {
+	@media only screen and ($large-up) {
+		@content;
+	}
+}
+
+@mixin at-w-up {
+	@media only screen and ($wide-up) {
+		@content;
+	}
+}
