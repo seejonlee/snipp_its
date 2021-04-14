@@ -1,17 +1,22 @@
-@at-root {
-	@font-face {
-		font-family: "Font";
-		font-style: normal;
-		font-weight: normal;
-		src:
-			url("../path to font files.ttf") format("truetype"),
-			url("../path to font files.woff2") format("woff2"),
-			url("../path to font files.woff") format("woff");
-		
+// Typography
+/* TODO: Refactor to output multiple src url/formats */
+@mixin font-face($fonts) {
+	@each $family, $path, $type in $fonts {
+		@font-face {
+			font-family: $family;
+			src: url($path) format($type);
+		}
 	}
 }
 
-// Typography
+$fonts:
+	"Family One" "path/to/file.ttf" "truetype",
+	"Family Two" "path/to/file.ttf" "truetype";
+
+@at-root {
+	@include font-face($fonts);
+}
+
 $fontBody: "Font";
 $fontHeading: "Font";
 
