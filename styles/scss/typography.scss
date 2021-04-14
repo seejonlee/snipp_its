@@ -15,6 +15,7 @@
 $fontBody: "Font";
 $fontHeading: "Font";
 
+//-- Base mixins
 @mixin base-typography {
 	font-style: normal;
 	-moz-osx-font-smoothing: grayscale; /* 1 */
@@ -41,69 +42,106 @@ $fontHeading: "Font";
 	line-height: $lineHeight;
 }
 
+//-- Reusable/consumable mixins
+@mixin body-text {
+	@include base-body(
+		$fontSize: 1rem,
+		$fontWeight: 400,
+		$letterSpacing: 0rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+@mixin h1 {
+	@include base-heading(
+		$fontSize: 2rem,
+		$fontWeight: 600,
+		$letterSpacing: 0.1rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+@mixin h2 {
+	@include base-heading(
+		$fontSize: 1.8rem,
+		$fontWeight: 600,
+		$letterSpacing: 0.1rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+@mixin h3 {
+	@include base-heading(
+		$fontSize: 1.6rem,
+		$fontWeight: 600,
+		$letterSpacing: 0.1rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+@mixin h4 {
+	@include base-heading(
+		$fontSize: 1.4rem,
+		$fontWeight: 600,
+		$letterSpacing: 0.1rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+@mixin h5 {
+	@include base-heading(
+		$fontSize: 1.2rem,
+		$fontWeight: 600,
+		$letterSpacing: 0.1rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+@mixin h6 {
+	@include base-heading(
+		$fontSize: 1rem,
+		$fontWeight: 600,
+		$letterSpacing: 0.1rem,
+		$lineHeight: 1.1rem
+	);
+}
+
+//-- Rule definitions
 html {
-  font-size: 16px;
+	font-size: 16px;
 }
 
+.body-text,
 body {
-  @include base-body(
-    $fontSize: 1rem,
-    $fontWeight: 400,
-    $letterSpacing: 0rem,
-    $lineHeight: 1.1rem
-  );
+	@include body-text;
 }
 
+.h1,
 h1 {
-  @include base-heading(
-    $fontSize: 2rem,
-    $fontWeight: 600,
-    $letterSpacing: 0.1rem,
-    $lineHeight: 1.1rem
-  );
+	@include h1;
 }
 
+.h2,
 h2 {
-  @include base-heading(
-    $fontSize: 1.8rem,
-    $fontWeight: 600,
-    $letterSpacing: 0.1rem,
-    $lineHeight: 1.1rem
-  );
+	@include h2;
 }
 
+.h3,
 h3 {
-  @include base-heading(
-    $fontSize: 1.6rem,
-    $fontWeight: 600,
-    $letterSpacing: 0.1rem,
-    $lineHeight: 1.1rem
-  );
+	@include h3;
 }
 
+.h4,
 h4 {
-  @include base-heading(
-    $fontSize: 1.4rem,
-    $fontWeight: 600,
-    $letterSpacing: 0.1rem,
-    $lineHeight: 1.1rem
-  );
+	@include h4;
 }
 
+.h5,
 h5 {
-  @include base-heading(
-    $fontSize: 1.2rem,
-    $fontWeight: 600,
-    $letterSpacing: 0.1rem,
-    $lineHeight: 1.1rem
-  );
+	@include h5;
 }
 
+.h6,
 h6 {
-  @include base-heading(
-    $fontSize: 1rem,
-    $fontWeight: 600,
-    $letterSpacing: 0.1rem,
-    $lineHeight: 1.1rem
-  );
+	@include h6;
 }
