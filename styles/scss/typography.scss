@@ -1,17 +1,21 @@
 // Typography
-/* TODO: Refactor to output multiple src url/formats */
+/*
+@param $fonts (list) List of lists. Inner list will define the font family and a map of file paths/types.
+*/
 @mixin font-face($fonts) {
-	@each $family, $path, $type in $fonts {
+	@each $family, $srcs in $fonts {
 		@font-face {
 			font-family: $family;
-			src: url($path) format($type);
+			@each $path, $type in $srcs {
+				src: url($path) format($type);
+			}
 		}
 	}
 }
 
 $fonts:
-	"Family One" "path/to/file.ttf" "truetype",
-	"Family Two" "path/to/file.ttf" "truetype";
+	"Family One" ("path/to/file.ttf": "truetype", "path/to/file.woff": "woff"),
+	"Family Two" ("path/to/file.ttf": "truetype", "path/to/file.woff": "woff");
 
 @at-root {
 	@include font-face($fonts);
