@@ -2,13 +2,26 @@
 /*
 @param $fonts (list) List of lists. Inner list will define the font family and a map of file paths/types.
 */
+@function getSrcList($srcs) {
+	$srcList: "";
+
+	@each $path, $type in $srcs {
+		@if (index(($srcs), ($path $type)) != length($srcs)) {
+			$srcList: #{$srcList} + url($path) format($type) + ", ";
+		}
+		@if (index(($srcs), ($path $type)) == length($srcs)) {
+			$srcList: #{$srcList} + url($path) format($type);
+		}
+	}
+
+	@return $srcList;
+}
+
 @mixin font-face($fonts) {
 	@each $family, $srcs in $fonts {
 		@font-face {
 			font-family: $family;
-			@each $path, $type in $srcs {
-				src: url($path) format($type);
-			}
+			src: getSrcList($srcs);
 		}
 	}
 }
