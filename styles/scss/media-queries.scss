@@ -12,8 +12,20 @@ $medium-large-up: "min-width: #{map-get($breakpoints, ml)}";
 $large-up: "min-width: #{map-get($breakpoints, l)}";
 $wide-up: "min-width: #{map-get($breakpoints, w)}";
 
+$small-down: 'max-width: calc(#{map-get($breakpoints, s)} - 1px)';
+$medium-down: 'max-width: calc(#{map-get($breakpoints, m)} - 1px)';
+$medium-large-down: 'max-width: calc(#{map-get($breakpoints, ml)} - 1px)';
+$large-down: 'max-width: calc(#{map-get($breakpoints, l)} - 1px)';
+$wide-down: 'max-width: calc(#{map-get($breakpoints, w)} - 1px)';
+
 @mixin at-s-up {
 	@media only screen and ($small-up) {
+		@content;
+	}
+}
+
+@mixin at-s-down {
+	@media only screen and ($small-down) {
 		@content;
 	}
 }
@@ -24,8 +36,20 @@ $wide-up: "min-width: #{map-get($breakpoints, w)}";
 	}
 }
 
+@mixin at-m-down {
+	@media only screen and ($medium-down) {
+		@content;
+	}
+}
+
 @mixin at-ml-up {
 	@media only screen and ($medium-large-up) {
+		@content;
+	}
+}
+
+@mixin at-ml-down {
+	@media only screen and ($medium-large-down) {
 		@content;
 	}
 }
@@ -36,8 +60,20 @@ $wide-up: "min-width: #{map-get($breakpoints, w)}";
 	}
 }
 
+@mixin at-l-down {
+	@media only screen and ($large-down) {
+		@content;
+	}
+}
+
 @mixin at-w-up {
 	@media only screen and ($wide-up) {
+		@content;
+	}
+}
+
+@mixin at-w-down {
+	@media only screen and ($wide-down) {
 		@content;
 	}
 }
