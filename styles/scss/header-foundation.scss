@@ -1,0 +1,53 @@
+// -- Header -- //
+
+$ns: '.header-foundation';
+
+#{$ns} {
+	display: flex;
+	position: relative;
+	top: -1px;
+	width: 100vw;
+	height: 75px;
+	padding: 20px;
+	background: $white;
+	z-index: 1000;
+
+	@include at-desktop {
+		padding: 40px;
+	}
+
+	&__menu-button {
+		height: 18px;
+
+		&:focus {
+			outline: none;
+		}
+
+		> div {
+			height: 2px;
+			width: 27px;
+			background-color: $big-stone-blue;
+			border-radius: 25px;
+			margin-bottom: 9px;
+			transition: all .5s ease;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&--close {
+			> div:nth-child(1) {
+				transform: translateY(10px) rotate(45deg);
+			}
+
+			> div:nth-child(2) {
+				opacity: 0;
+			}
+
+			> div:nth-child(3) {
+				transform: translateY(-12px) rotate(-45deg);
+			}
+		}
+	}
+}
