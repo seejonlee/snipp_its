@@ -77,3 +77,17 @@ $wide-down: 'max-width: calc(#{map-get($breakpoints, w)} - 1px)';
 		@content;
 	}
 }
+
+// Hidden down base sample.
+@mixin hidden-l-down {
+	@include at-l-down {
+		display: none;
+	}
+}
+
+// Hidden up base sample.
+@mixin hidden-s-up {
+	@include at-s-up {
+		display: none;
+	}
+}
