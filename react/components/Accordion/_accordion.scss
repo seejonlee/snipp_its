@@ -1,0 +1,21 @@
+// -- Accordion -- //
+
+$ns: '.accordion';
+
+#{$ns} {
+	&-item {
+		width: 100%;
+	}
+
+	&-control {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+	}
+
+	&-panel__content {
+		box-sizing: content-box;
+		overflow-y: hidden;
+		transition: all 500ms ease-in-out; // Height changes on expand/collapse.
+	}
+}
