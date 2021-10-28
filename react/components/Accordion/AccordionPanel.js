@@ -11,11 +11,12 @@ const AccordionPanel = ({
 	uid,
 	render,
 	children,
+	initialContentHeight = '0px',
 }) => {
 	const {isExpanded} = useContext(AccordionContext);
 
 	const [expanded, setExpanded] = useState(false);
-	const [contentHeight, setContentHeight] = useState('0px');
+	const [contentHeight, setContentHeight] = useState(initialContentHeight);
 
 	const expandPanel = useRef(null);
 
@@ -25,9 +26,9 @@ const AccordionPanel = ({
 			setContentHeight(`${ expandPanel.current.scrollHeight }px`);
 		} else {
 			setExpanded(false);
-			setContentHeight(`0px`);
+			setContentHeight(initialContentHeight);
 		}
-	}, [isExpanded, uid]);
+	}, [isExpanded, uid, initialContentHeight]);
 
 	const rootClassnames = classNames({
 		[`${ ns }`]: true,
