@@ -3,19 +3,45 @@
 $ns: '.menu-foundation';
 
 #{$ns} {
+	/* Opens TOP to BOTTOM */
 	position: absolute;
-	top: 0;
+	top: 100%; // Sets top to bottom of it's parent (i.e. header).
 	left: 0;
 	width: 100vw;
-	height: 100vh;
+	height: calc(100vh - 100px); // Minus height of parent (i.e. header);
 	background: $white;
-	overflow: scroll;
+	overflow-y: scroll;
 	visibility: visible;
 	transition: all 500ms ease-in-out;
 
 	&--closed {
 		visibility: hidden;
-		transform: translateY(-100%);
+		height: 0;
+	}
+
+	&__content {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	/* Opens RIGHT to LEFT */
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 70vw;
+	height: 100vh;
+	background: rgba($primaryDarkColor, 0.3);
+	overflow-y: scroll;
+	visibility: visible;
+	transition: transform 500ms ease-in-out;
+
+	&--closed {
+		visibility: hidden;
+		transform: translateX(100%);
 	}
 
 	&__content {
