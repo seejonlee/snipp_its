@@ -1,0 +1,47 @@
+// -- Swiper Base -- //
+
+$ns: '.swiper-base';
+
+#{$ns} {
+	background: #C0FFEE;
+	padding: 50px 0;
+
+	&__slider-container {
+		position: relative;
+
+		.swiper {
+			padding-bottom: 50px;
+		}
+
+		.swiper-pagination-bullets.swiper-pagination-horizontal {
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: auto;
+			height: 20px;
+			border-radius: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: rgba(62, 90, 91, .3);
+			backdrop-filter: blur(4px);
+
+			.swiper-pagination-bullet {
+				background: #FFFFFF;
+				opacity: .3;
+			}
+
+			.swiper-pagination-bullet-active {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__slide {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 10px;
+	}
+}
