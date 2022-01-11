@@ -10,6 +10,7 @@ const AccordionControl = ({
 	className,
 	uid,
 	children,
+	onClick,
 }) => {
 	const {
 		isExpanded,
@@ -53,7 +54,10 @@ const AccordionControl = ({
 			className={rootClassnames}
 			aria-controls={uid}
 			aria-expanded={expanded}
-			onClick={updateExpandedState}
+			onClick={() => {
+				updateExpandedState();
+				(typeof onClick === 'function' && onClick());
+			}}
 		>
 			{ children }
 		</button>
