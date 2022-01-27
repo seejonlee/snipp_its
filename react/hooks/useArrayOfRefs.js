@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 /**
  * Usage:
@@ -18,3 +18,5 @@ const useArrayOfRefs = (size) => {
 
 	return [arrayOfRefs, refCallback];
 };
+
+export default useArrayOfRefs;
