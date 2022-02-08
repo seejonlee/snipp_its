@@ -3,16 +3,17 @@ import classNames from 'classnames';
 
 const ns = `marquee`;
 
-const Marquee = ({children}) => {
+const Marquee = ({children, animationDuration, animationDirection = 'rtl'}) => {
 	const rootClassnames = classNames({
 		[`${ ns }`]: true,
+		[`${ ns }--ltr`]: animationDirection === 'ltr',
 	});
 
 	if (!children) return null;
 
 	return (
 		<div className={rootClassnames}>
-			<div className={`${ ns }__content`}>
+			<div className={`${ ns }__content`} style={{animationDuration}}>
 				<div className={`${ ns }__content-block`}>
 					{children}
 				</div>
