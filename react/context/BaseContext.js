@@ -1,7 +1,7 @@
 import React, {createContext, useState, useContext} from 'react';
 
 /**
- * Example Usage - Procvide
+ * Example Usage - Provider
  * 
 	import {ActiveSectionContextProvider} from '../context/active-section-context';
 	
@@ -12,7 +12,7 @@ import React, {createContext, useState, useContext} from 'react';
 			</ActiveSectionContextProvider>
 		);
 	}
- * Example Usage - Consume
+ * Example Usage - Consumer
  * 
 	const { activeSection } = useActiveSectionContext();
  */
@@ -24,9 +24,11 @@ export const useActiveSectionContext = () => { return useContext(SomeContext); }
 export const SomeContextProvider = ({ children }) => {
 	const [someContextState, setSomeContextState] = useState();
 
+	// Any other logic and functionality.
+
 	return (
 		<SomeContext.Provider
-			value={{ activeSection, setActiveSection }}
+			value={{ someContextState, setSomeContextState }}
 		>
 			{children}
 		</SomeContext.Provider>
