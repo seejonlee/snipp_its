@@ -80,3 +80,15 @@ const getCanvasImageScaleParameters = (canvas, image) => {
 		scale
 	};
 };
+
+/**
+ * Converts a string to camelCase where 'This is now camel case' -> thisIsNowCamelCase.
+ * @param {string} str String that will get converted to camelCase.
+ * @returns Input string in camelCase format.
+ */
+export const convertToCamelCase = str => {
+	return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => {
+		if (+match === 0) return ''; // Return condition for 'space' char, +<space> => 0.
+		return index === 0 ? match.toLowerCase() : match.toUpperCase();
+	});
+};
