@@ -1,4 +1,4 @@
-import React, { useImperativeHandle, useState } from 'react';
+import React, { useImperativeHandle, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import AccordionContext from './AccordionContext';
 
@@ -61,6 +61,14 @@ const Accordion = ({
 		[`${ ns }`]: true,
 		[`${ className }`]: !!className,
 	});
+
+	useEffect(() => {
+		setExpandedItems(
+			(preExpanded && preExpanded.length)
+				? preExpanded
+				: []
+		);
+	}, [preExpanded]);
 
 	return (
 		<AccordionContext.Provider
