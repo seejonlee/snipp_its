@@ -14,7 +14,7 @@ export const supportsHEVCAlpha = () => {
 		!(ua.indexOf('chrome') !== -1) &&
 		ua.indexOf('version/') !== -1;
 	return isSafari && hasMediaCapabilities;
-	};
+};
 
 export const getMobileOS = () => {
 	const { navigator } = getSafeWindowObject();
@@ -91,4 +91,37 @@ export const convertToCamelCase = str => {
 		if (+match === 0) return ''; // Return condition for 'space' char, +<space> => 0.
 		return index === 0 ? match.toLowerCase() : match.toUpperCase();
 	});
+};
+
+/**
+ * Formats a currency according to the user's locale
+ * @param {string} currency The ISO currency code
+ * @param {number} value The amount to format
+ * @returns
+ */
+
+export const formatPrice = (currency, value) => {
+	return Intl.NumberFormat('en-US', {
+		currency,
+		minimumFractionDigits: 2,
+		style: 'currency',
+	}).format(value);
+};
+
+export const formatUTCDate = (
+	utcString,
+	locale = 'en-US',
+	options = {
+		month: 'long',
+		day: 'numeric',
+		year: 'numeric',
+	}
+) => {
+	if (!utcString) return '';
+	const date = new Date(utcString);
+	return date.toLocaleDateString(locale, options);
+};
+
+export const capitalizeWord = word => {
+	return word.charAt(0).toUpperCase().concat(word.slice(1));
 };
